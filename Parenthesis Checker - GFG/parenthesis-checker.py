@@ -4,27 +4,63 @@
 class Solution:
     
     #Function to check if brackets are balanced or not.
-    def ispar(self,x):
+    def ispar(self,s):
         # code here
         st=[]
-        for i in x:
-            if i in '({[':
+        for i in s:
+            if (i =='(' or i=='{' or i=='['):
                 st.append(i)
-            elif (i is ')'):
-                if len(st)==0 or (st[-1]!='('):
-                    return False
-                st.pop()
-            elif (i is '}'):
-                if len(st)==0 or (st[-1]!='{'):
-                    return False
-                st.pop()
-            elif (i is ']'):
-                if len(st)==0 or (st[-1]!='['):
-                    return False
-                st.pop()
+            else:
+                if len(st)!=0:
+                    if (i==')' and st[-1]=='(') or (i=='}' and st[-1]=='{') or (i==']' and st[-1]=='['):
+                        st.pop()
+                    else:
+                        return False 
+
+                else:
+                    return False 
         if len(st)==0:
             return True
-        return False
+        else:
+            return False 
+        # st=[]
+        # for i in s:
+        #     if i in '({[':
+        #         st.append(i)
+        #     elif i is ')':
+        #         if not st==0 or st[-1]!='(':
+        #             return False 
+        #         st.pop()
+        #     elif i is '}':
+        #         if not st==0 or st[-1]!='{':
+        #             return False 
+        #         st.pop()
+        #     elif i is ']':
+        #         if not st==0 or st[-1]!='[':
+        #             return False 
+        #         st.pop()
+        # if not st==0:
+        #     return True
+        # return False 
+        # st=[]
+        # for i in x:
+        #     if i in '({[':
+        #         st.append(i)
+        #     elif (i is ')'):
+        #         if len(st)==0 or (st[-1]!='('):
+        #             return False
+        #         st.pop()
+        #     elif (i is '}'):
+        #         if len(st)==0 or (st[-1]!='{'):
+        #             return False
+        #         st.pop()
+        #     elif (i is ']'):
+        #         if len(st)==0 or (st[-1]!='['):
+        #             return False
+        #         st.pop()
+        # if len(st)==0:
+        #     return True
+        # return False
                 
 
 
