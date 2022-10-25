@@ -1,7 +1,7 @@
 #User function Template for python3
 
 ### mirror symmetric means let become right and right become left
-def helper(root,node1,node2):
+def helper(node1,node2):
     if node1==None and node2==None:
         return True 
     if node1==None and node2!=None:
@@ -12,8 +12,8 @@ def helper(root,node1,node2):
     if node1.data!=node2.data:
         return False 
         
-    left=helper(root,node1.left,node2.right)
-    right=helper(root,node1.right,node2.left)
+    left=helper(node1.left,node2.right)
+    right=helper(node1.right,node2.left)
     
     if left and right :
         return True 
@@ -30,7 +30,7 @@ class Solution:
             return False 
         if root.left!=None and root.right==None:
             return False 
-        return helper(root,root.left,root.right)
+        return helper(root.left,root.right)
         
 
 
