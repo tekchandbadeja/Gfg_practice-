@@ -46,9 +46,11 @@ import queue
 from collections import deque
 class Solution:
     def verticalOrder(self, root):
-        q=deque([])
+        #q=deque([])
+        q=[]
+        
         #q=queue.Queue([])
-        a=[root,[0,0]]
+        a=[root,(0,0)]
         #a=[root,(0,0)]
         q.append(a)
         #q.put(a)
@@ -56,7 +58,8 @@ class Solution:
         #n=q.qsize()
         
         while(len(q)!=0):
-            b=q.popleft()
+            #b=q.popleft()
+            b=q.pop(0)
             #b=q.get()
             ro=b[0]
             hd=b[1][0] # horizontal distance
@@ -66,11 +69,11 @@ class Solution:
             else:
                 d[hd]=[ro.data] # making a dict like{1:[1,5,6]} array as key
             if(ro.left):
-                b=[ro.left,[hd-1,lev+1]] #if left is present than hd=hd-1 and lev=lev+1
+                b=[ro.left,(hd-1,lev+1)] #if left is present than hd=hd-1 and lev=lev+1
                 q.append(b)
                 #q.put(b)
             if(ro.right):
-                b=[ro.right,[hd+1,lev+1]] # if right is present than hd=hd+1 and lev=lev+1
+                b=[ro.right,(hd+1,lev+1)] # if right is present than hd=hd+1 and lev=lev+1
                 q.append(b)
                 #q.put(b)
         ar=sorted(d)
