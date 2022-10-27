@@ -15,10 +15,10 @@ class Solution:
             rd=b[0]
             hd=b[1]
             
-            if hd not in d:
-                d[hd]=[rd.data]
-            else:
-                d[hd]=[rd.data]
+            # if hd not in d:
+            #     d[hd]=[rd.data]
+            # else:
+            d[hd]=[rd.data]
                 
             if rd.left:
                 left=(rd.left,hd-1)
