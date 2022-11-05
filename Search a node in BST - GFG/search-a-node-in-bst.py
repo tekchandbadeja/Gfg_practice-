@@ -5,17 +5,17 @@ class BST:
     #Function to search a node in BST.
     def search(self, node, x):
         ### optimal
-        if node==None:
-            return 0
-        if node.data==x:
-            return 1
-        if node.data>x:
-            left=self.search(node.left,x)
-            return left
+        # if node==None:
+        #     return 0
+        # if node.data==x:
+        #     return 1
+        # if node.data>x:
+        #     left=self.search(node.left,x)
+        #     return left
             
-        if node.data<x:
-            right=self.search(node.right,x)
-            return right
+        # if node.data<x:
+        #     right=self.search(node.right,x)
+        #     return right
             
             
         
@@ -34,15 +34,15 @@ class BST:
         
         
         
-        # if node==None:
-        #     return 0
+        if node==None:
+            return 0
         
-        # lt=self.search(node.left,x)
-        # rt=self.search(node.right,x)
-        # if node.data==x:
-        #     return 1
+        lt=self.search(node.left,x)
+        rt=self.search(node.right,x)
+        if node.data==x:
+            return 1
         
-        # return lt or rt
+        return lt or rt
 
 
 
