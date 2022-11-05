@@ -4,16 +4,45 @@ class BST:
     
     #Function to search a node in BST.
     def search(self, node, x):
-        #code here
+        ### optimal
         if node==None:
             return 0
-        
-        lt=self.search(node.left,x)
-        rt=self.search(node.right,x)
         if node.data==x:
             return 1
+        if node.data>x:
+            left=self.search(node.left,x)
+            return left
+            
+        if node.data<x:
+            right=self.search(node.right,x)
+            return right
+            
+            
         
-        return lt or rt
+        
+        
+        
+        
+        
+        
+        
+        
+        #code here
+        
+        
+        
+        
+        
+        
+        # if node==None:
+        #     return 0
+        
+        # lt=self.search(node.left,x)
+        # rt=self.search(node.right,x)
+        # if node.data==x:
+        #     return 1
+        
+        # return lt or rt
 
 
 
