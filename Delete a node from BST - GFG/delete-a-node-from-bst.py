@@ -1,83 +1,78 @@
-#User function Template for python3
+# #User function Template for python3
 
 
-#Function to delete a node from BST.
+# #Function to delete a node from BST.
+
+# def delete_helper(root,key):
+#     if root==None:
+#         return False , None
+    
+#     if root.data<key:
+#         deleted,new_right_node=delete_helper(root.right,key)
+#         root.right=new_right_node
+#         return deleted,root
+#     if root.data>key:
+#         deleted,new_left_node=delete_helper(root.left,key)
+#         root.left=new_left_node
+#         return deleted,root
+    
+
+#     #### root is leaf
+#     if root.left==None and root.right==None:
+#         return True, None
+
+#     ### only 1 child 
+#     if root.left==None:
+#         return True , root.right
+#     if root.right==None:
+#         return True,root.left
+
+#     ### Both child 
+#     replacment=minium_(root.right)
+#     root.data=replacment
+#     deleted,new_right_node=delete_helper(root.right,replacment)
+#     root.right=new_right_node
+#     return True ,root
 def minium_(root):
     if root==None:
-        return 10000000
+        return 1000000
     if root.left==None:
         return root.data
     return minium_(root.left)
 def delete_helper(root,key):
     if root==None:
-        return False , None
-    
+        return False,None
     if root.data<key:
         deleted,new_right_node=delete_helper(root.right,key)
         root.right=new_right_node
-        return deleted,root
+        return deleted,root 
+        
     if root.data>key:
         deleted,new_left_node=delete_helper(root.left,key)
         root.left=new_left_node
-        return deleted,root
+        return deleted,root 
+        
+    ### ab case hoge ke root data key ke equal ho 
     
-
-    #### root is leaf
+    ### case 1  leaf 
     if root.left==None and root.right==None:
-        return True, None
-
-    ### only 1 child 
+        return True ,None
+        
+    #### case 2 only one child 
     if root.left==None:
-        return True , root.right
+        return True ,root.right
+    
     if root.right==None:
         return True,root.left
-
-    ### Both child 
+        
+    #### case 3 both child have 
     replacment=minium_(root.right)
     root.data=replacment
-    deleted,new_right_node=delete_helper(root.right,replacment)
-    root.right=new_right_node
-    return True ,root
-# def minium_(root):
-#     if root==None:
-#         return 1000000
-#     if root.left==None:
-#         return root.data
-#     return minium_(root.left)
-# def delete_helper(root,key):
-#     if root==None:
-#         return False,None
-#     if root.data<key:
-#         deleted,new_right_node=delete_helper(root.right,key)
-#         root.right=new_right_node
-#         return root 
-        
-#     if root.data>key:
-#         deleted,new_left_node=delete_helper(root.left,key)
-#         root.left=new_left_node
-#         return root 
-        
-#     ### ab case hoge ke root data key ke equal ho 
     
-#     ### case 1  leaf 
-#     if root.left==None and root.right==None:
-#         return True ,None
-        
-#     #### case 2 only one child 
-#     if root.left==None:
-#         return True ,root.right
-    
-#     if root.right==None:
-#         return True,root.left
-        
-#     #### case 3 both child have 
-#     replacment=minium_(root.right)
-#     root.data=replacment
-    
-#     #### ab jo replacment vaala hai usko to hatao
-#     deleted,new_right_child=delete_helper(root.right,replacment)
-#     root.right=new_right_child
-#     return True,root 
+    #### ab jo replacment vaala hai usko to hatao
+    deleted,new_right_child=delete_helper(root.right,replacment)
+    root.right=new_right_child
+    return True,root 
 def deleteNode(root, X):
     # code here.
     deleted,new_root=delete_helper(root,X)
