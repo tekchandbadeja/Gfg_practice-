@@ -3,11 +3,13 @@ import heapq
 class Solution():
     def mergeHeaps(self, a, b, n, m):
         #your code here
-        new_arr=[]*(n+m)
-        for i in a:
-            new_arr.append(i)
-        for j in b:
-            new_arr.append(j)
+        new_arr=a+b
+        
+        # new_arr=[]*(n+m)
+        # for i in a:
+        #     new_arr.append(i)
+        # for j in b:
+        #     new_arr.append(j)
         heapq._heapify_max(new_arr)
         return new_arr
 
